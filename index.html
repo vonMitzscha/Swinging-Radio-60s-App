@@ -1,10 +1,41 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
+    <meta name="apple-mobile-web-app-title" content="Radio 60s" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon" href="apple-touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png">
+    
+    <link rel="stylesheet" href="style.css">
     <title>Swinging Radio 60s</title>
   </head>
   <body>
-
+    <img class="record" id="rotation" src="graphics/record.svg"/>
+    <img id="cover" class="cover" src="graphics/cover.svg"/>
+    <div class="controls">
+      <button id="play" class="button" onclick=""><img src="graphics/play.svg"></button>
+        <script>
+          document.getElementById('play').onclick = function (){
+          document.getElementById('player').play();
+          addRotate();
+        };
+        </script>
+      <button id="pause"class="button" onclick=""><img src="graphics/pause.svg"></button>
+      <script>
+        document.getElementById('pause').onclick = function (){
+        document.getElementById('player').pause();
+        removeRotate()
+      };
+      </script>
+      <video id="player" class="video-js vjs-default-skin" height="360" width="640" controls preload="none">
+      <source src="http://s3.viastreaming.net:8585/listen.pls" type="audio/x-scpls" />
+    </video>
+    </div>
   </body>
+  <script src="script.js" type="text/javascript" charset="utf-8"></script>
 </html>
